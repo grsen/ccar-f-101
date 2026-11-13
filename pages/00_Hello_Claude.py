@@ -24,7 +24,7 @@ PAGE_SLUG = "00_Hello_Claude"  # see utils/progress.py naming note — never nam
 HELLO_MERMAID = """flowchart TD
     YOU(["You<br/>(learner)"]) -->|"your subscription<br/>no key"| CC["Claude Code<br/>(VS Code panel)"]
     CC -->|"builds this repo +<br/>sandbox_project/"| APP["This Streamlit app<br/>(app.py → pages/)"]
-    APP -->|"pattern demos<br/>every page"| GEM["Gemini 2.5 Flash<br/>GEMINI_API_KEY"]
+    APP -->|"pattern demos<br/>every page"| GEM["Gemini 3.8 Flash<br/>GEMINI_API_KEY"]
     APP -.->|"KEY pages only<br/>exact exam mechanics"| CL["Claude API<br/>ANTHROPIC_API_KEY"]
     GEM ~~~ NOW["ACTIVE NOW<br/>free tier, cheap"]
     CL ~~~ LATER["BUY BEFORE DAY 1<br/>see KEY pages"]
@@ -91,7 +91,7 @@ with st.expander("📐 Core Code Pattern — utils/llm.py"):
 
 client   = genai.Client(api_key=GEMINI_API_KEY)
 response = client.models.generate_content(
-    model="gemini-2.5-flash",
+    model="gemini-3.8-flash",
     contents="What does CCAR-F test, in one sentence?",
 )
 print(response.text)''', language="python")
@@ -149,7 +149,7 @@ if st.button("Send", type="primary", disabled=not gemini_key):
     if not prompt.strip():
         st.warning("Please enter a question.")
     else:
-        with st.spinner("Calling Gemini 2.5 Flash…"):
+        with st.spinner("Calling Gemini 3.8 Flash…"):
             try:
                 from google import genai as _genai
                 from google.genai import types as _types
@@ -199,7 +199,7 @@ if st.button("Send", type="primary", disabled=not gemini_key):
 
 with st.expander("🔍 What just happened"):
     st.markdown("""
-That call went to **Gemini 2.5 Flash**, through `utils/llm.py`, the same wrapper every
+That call went to **Gemini 3.8 Flash**, through `utils/llm.py`, the same wrapper every
 later page uses. The Execution Trace above shows the finish reason Gemini actually
 returned, with the Claude term it maps to written beside it — that side-by-side habit is
 how every ★ page in this course stays honest about which product it's really
