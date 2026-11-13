@@ -41,7 +41,7 @@ HELLO_MERMAID = """flowchart TD
     class LATER future
 """
 
-st.set_page_config(page_title="Phase 0 — Hello Claude", page_icon="👋", layout="wide")
+st.set_page_config(page_title="Phase 0 — Hello Claude CCAR-F User", page_icon="👋", layout="wide")
 
 # ── Phase header ─────────────────────────────────────────────────────────────
 st.markdown(phase_header(
